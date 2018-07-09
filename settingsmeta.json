@@ -1,36 +1,84 @@
 {
-    "name": "Espy",
+    "name": "ESP8266",
+    "color": "#8B0000",
     "skillMetadata": {
         "sections": [
             {
-                "name": "Options << Name of section",
+                "name": "Description",
                 "fields": [
                     {
-                        "name": "internal_python_variable_name",
+                        "type": "label",
+                        "label": "<b>Units</b> are the access point of your ESP8266s. Seperate each access point by a coma. It can be an IP address or a domain name. <br><br>You can choose between those protocols to communicate with the ESP8266: <ul><li>HTTP Get</li><li>Websocket</li><li>MQTT</li></ul>"
+                    }
+                ]
+            },
+            {   
+                "name": "Devices",
+                "fields": [
+                    {
+                        "name": "units",
                         "type": "text",
-                        "label": "Setting Friendly Display Name",
-                        "value": "",
-                        "placeholder": "demo prompt in the input box"
+                        "label": "Units",
+                        "placeholder": "esp8266.local",
+                        "value": ""
+                    },
+                    {
+                        "name": "protocol",
+                        "type": "select",
+                        "label": "Chosen Protocol",
+                        "options": "HTTP Get|http_get;Websocket|ws;MQTT|mqtt",
+                        "value": "mqtt"
                     }
                 ]
             },
             {
-                "name": "Login << Name of another section",
+                "name": "Websocket",
                 "fields": [
                     {
-                        "type": "label",
-                        "label": "Just a little bit of extra info for the user to understand following settings"
+                        "name": "ws-port",
+                        "type": "number",
+                        "label": "Websocket Port",
+                        "placeholder": "81",
+                        "value": "81"
+                    }
+                ]
+            },
+            {
+                "name": "MQTT",
+                "fields": [
+                    {
+                        "name": "mqtt-host",
+                        "type": "text",
+                        "label": "MQTT Host",
+                        "placeholder": "test.mosquitto.org",
+                        "value": "test.mosquitto.org"
                     },
                     {
-                        "name": "username",
+                        "name": "mqtt-port",
+                        "type": "number",
+                        "label": "MQTT Port",
+                        "placeholder": "1883",
+                        "value": "1883"
+                    },
+                    {
+                        "name": "mqtt-auth",
+                        "type": "select",
+                        "label": "MQTT Authentication",
+                        "options": "No|no;Yes|yes",
+                        "value": "no"
+                    },
+                    {
+                        "name": "mqtt-user",
                         "type": "text",
-                        "label": "Username",
+                        "label": "MQTT User",
+                        "placeholder": "youruser",
                         "value": ""
                     },
                     {
-                        "name": "password",
+                        "name": "mqtt-pass",
                         "type": "password",
-                        "label": "Password",
+                        "label": "MQTT Password",
+                        "placeholder": "yourpass",
                         "value": ""
                     }
                 ]

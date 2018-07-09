@@ -1,0 +1,5 @@
+{
+    "expected_dialog": "cmd.sent",
+    "intent_type": "espy.intent",
+    "utterance": "Turn on the bedside lamp"
+}
