@@ -36,6 +36,21 @@ class Esp8266Skill(MycroftSkill):
 
     def __init__(self):
         super(Esp8266Skill, self).__init__(name="Esp8266Skill")
+        self.esp_units = ["esp8266.local"]
+        self.protocol = "mqtt"
+        
+        # websocket parameter
+        self.ws = None
+        self.ws_port = 81
+        
+        # mqtt parameter
+        self.mqtt_host = "test.mosquitto.org"
+        self.mqtt_port = 1883
+        self.mqtt_auth = "no"
+        self.mqtt_user = ""
+        self.mqtt_pass = ""
+        
+    def initialize(self):
         self.esp_units = self.settings["units"]
         if type(self.esp_units) == str:
             self.esp_units = [self.esp_units]
@@ -52,7 +67,6 @@ class Esp8266Skill(MycroftSkill):
         self.mqtt_user = self.settings["mqtt-user"]
         self.mqtt_pass = self.settings["mqtt-pass"]
         
-    def initialize(self):
         self.load_data_files(dirname(__file__))
         self. __build_single_command()        
         
